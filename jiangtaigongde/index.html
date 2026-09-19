@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="姜太公的小岛攻略：探索古代智慧与现代生存的结合，提供详细的海岛生存指南、资源采集技巧、防御工事建设方案及古法渔猎知识。">
+    <meta name="keywords" content="姜太公的小岛攻略, 海岛生存, 野外求生, 姜子牙智慧, 岛屿建设, 古法捕鱼">
+    <title>姜太公的小岛攻略-海岛生存与古法智慧指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --accent-color: #F4A460;
+            --bg-color: #FDF5E6;
+            --text-color: #333;
+            --light-text: #666;
+            --card-bg: #fff;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: #fff;
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: #fff;
+            color: var(--primary-color);
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Content Sections */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 180px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.25rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            background: rgba(210, 105, 30, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .card-link {
+            color: var(--secondary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-link::after {
+            content: "→";
+            margin-left: 4px;
+            transition: margin-left 0.2s;
+        }
+
+        .card-link:hover::after {
+            margin-left: 8px;
+        }
+
+        /* Survival Steps */
+        .step-list {
+            counter-reset: step;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .step-item::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .step-content {
+            color: var(--light-text);
+            background: #fff;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .resource-list li {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-list a {
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .resource-list span {
+            font-size: 0.8rem;
+            color: #999;
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: #fff;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .faq-question:hover {
+            background-color: #fafafa;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--light-text);
+            display: none;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #ccc;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span>⚓</span> 姜太公的小岛攻略
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#survival">生存指南</a></li>
+                    <li><a href="#construction">建设防御</a></li>
+                    <li><a href="#resources">资源采集</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>古法智慧，海岛求生</h1>
+            <p>汇集姜子牙古老兵法与现代海岛生存理念，为您提供从荒岛初期的安全建立到长期居住的全方位生存攻略。</p>
+            <a href="#survival" class="btn">开始您的海岛之旅</a>
+        </section>
+
+        <div class="container">
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Survival Guide -->
+                <section id="survival">
+                    <h2 class="section-title">生存核心指南</h2>
+                    <div class="step-list">
+                        <div class="step-item">
+                            <h3 class="step-title">第一阶段：安全与水源</h3>
+                            <div class="step-content">
+                                <p>到达岛屿的第一要务是寻找水源。优先寻找地势低洼处或植物茂密区域。姜太公兵法中讲究“水为兵之血”，无水则无生路。使用简易的蒸发装置或寻找天然泉眼。同时，搭建一个临时庇护所以防止夜间野兽袭击。</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <h3 class="step-title">第二阶段：工具与火种</h3>
+                            <div class="step-content">
+                                <p>火种是文明的象征，也是生存的关键。利用燧石或打火棒生火。火不仅能煮熟食物，还能驱赶蚊虫和野兽。工具方面，利用岛上的竹木制作矛头、刀具和渔具。切记，火堆应远离水源和干燥植被。</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <h3 class="step-title">第三阶段：食物获取</h3>
+                            <div class="step-content">
+                                <p>除了采集野果和可食用的根茎外，学习古法捕鱼是长期生存的关键。制作鱼叉或编织渔网，观察潮汐规律。同时，留意岛上的昆虫和鸟类。在不确定植物是否可食用时，切勿轻易入口。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Construction -->
+                <section id="construction">
+                    <h2 class="section-title">岛屿防御与建设</h2>
+                    <div class="card-grid">
+                        <article class="card">
+                            <div class="card-img">
+                                <img src="https://picsum.photos/seed/wall/400/250" alt="防御工事">
+                            </div>
+                            <div class="card-body">
+                                <span class="card-tag">防御</span>
+                                <h3 class="card-title">简易防御工事</h3>
+                                <p class="card-desc">利用岛上的巨石、珊瑚或木材建立环形围墙，防止夜间入侵者或野兽靠近居住区。</p>
+                                <a href="#" class="card-link">查看建造方法</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-img">
+                                <img src="https://picsum.photos/seed/shelter/400/250" alt="庇护所">
+                            </div>
+                            <div class="card-body">
+                                <span class="card-tag">居住</span>
+                                <h3 class="card-title">双层遮雨棚</h3>
+                                <p class="card-desc">为了应对热带风暴，建议搭建双层屋顶结构，确保内部干燥，防止漏雨。</p>
+                                <a href="#" class="card-link">查看搭建图纸</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-img">
+                                <img src="https://picsum.photos/seed/farm/400/250" alt="种植园">
+                            </div>
+                            <div class="card-body">
+                                <span class="card-tag">农业</span>
+                                <h3 class="card-title">岛屿种植园</h3>
+                                <p class="card-desc">在背风向阳的高地开辟小片土地，种植耐旱的块茎类作物，保障长期口粮。</p>
+                                <a href="#" class="card-link">了解种植技巧</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Resources -->
+                <section id="resources">
+                    <h2 class="section-title">资源采集与辨识</h2>
+                    <div class="card-grid">
+                        <article class="card">
+                            <div class="card-body">
+                                <span class="card-tag">植物</span>
+                                <h3 class="card-title">可食用植物图鉴</h3>
+                                <p class="card-desc">详细列出岛上常见的可食用果实、根茎及其辨别特征，附有毒植物警示。</p>
+                                <a href="#" class="card-link">阅读图鉴</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-body">
+                                <span class="card-tag">海洋</span>
+                                <h3 class="card-title">潮汐与礁石</h3>
+                                <p class="card-desc">掌握每日潮汐时间表，了解退潮时礁石区的海鲜分布，提高捕获效率。</p>
+                                <a href="#" class="card-link">查看潮汐表</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-body">
+                                <span class="card-tag">矿物</span>
+                                <h3 class="card-title">简易净水法</h3>
+                                <p class="card-desc">介绍使用沙石、木炭和布料制作简易净水器的步骤，确保饮水安全。</p>
+                                <a href="#" class="card-link">学习净化技术</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar -->
+            <aside>
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">生存工具包</h3>
+                    <ul class="resource-list">
+                        <li>
+                            <a href="#">姜子牙钓鱼法详解</a>
+                            <span>古法垂钓技巧</span>
+                        </li>
+                        <li>
+                            <a href="#">海岛急救手册</a>
+                            <span>常见伤患处理</span>
+                        </li>
+                        <li>
+                            <a href="#">夜间信号弹制作</a>
+                            <span>求救信号指南</span>
+                        </li>
+                        <li>
+                            <a href="#">海图识读入门</a>
+                            <span>基础航海知识</span>
+                        </li>
+                        <li>
+                            <a href="#">岛屿气象观察</a>
+                            <span>预测天气变化</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">生存问答 (FAQ)</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">在岛上遇到鲨鱼怎么办？</div>
+                        <div class="faq-answer">保持冷静，不要背对鲨鱼游泳。尽量让自己看起来体型庞大，避免眼神接触，缓慢后退上岸。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何判断海水是否可以饮用？</div>
+                        <div class="faq-answer">除非经过煮沸或过滤，否则直接饮用海水会导致严重脱水。必须寻找淡水泉眼或通过蒸馏获取淡水。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">岛屿夜晚非常危险吗？</div>
+                        <div class="faq-answer">是的，夜晚视线受限，且许多夜行性动物具有攻击性。建议在日落前搭建好安全庇护所，并保持火种不灭。</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>姜太公的小岛攻略</h4>
+                <p style="color: #ccc; font-size: 0.9rem; line-height: 1.8;">
+                    致力于分享最实用的海岛生存技巧，结合古老智慧与现代科学，帮助每一位探险者安全生存。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#survival">生存指南</a></li>
+                    <li><a href="#construction">防御工事</a></li>
+                    <li><a href="#resources">资源采集</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>免责声明</h4>
+                <ul>
+                    <li><a href="#">使用条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">风险提示</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 姜太公的小岛攻略 版权所有 | 内容仅供学习与参考
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
