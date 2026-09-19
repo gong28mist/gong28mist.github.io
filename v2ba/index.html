@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>v2ba空间日志播放 - V2BA空间日志播放器与多媒体资源站</title>
+    <meta name="description" content="提供v2ba空间日志播放服务，包含v2ba日志播放器下载、在线播放教程、空间日志播放常见问题解答及播放器配置指南，解决v2ba空间日志无法播放、格式不支持等问题。">
+    <meta name="keywords" content="v2ba空间日志播放, v2ba日志播放器, v2ba播放, v2ba空间, 日志播放, 播放器下载">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-hover: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 布局容器 */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部 */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* 首屏 Hero */
+        .hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 32px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* 主要内容区 */
+        main {
+            flex: 1;
+            padding: 40px 0;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        /* 播放器介绍卡片 */
+        .player-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* 教程步骤 */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .step-item::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .step-item h4 {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .step-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* 常见问题 */
+        .faq-list {
+            list-style: none;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            margin-bottom: 12px;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .faq-question:hover {
+            background-color: #f1f5f9;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-secondary);
+            display: none;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #334155;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            nav ul {
+                gap: 16px;
+                font-size: 0.9rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                <span>V2BA空间日志播放</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#player">播放器下载</a></li>
+                    <li><a href="#guide">播放教程</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>轻松实现 V2BA 空间日志播放</h1>
+            <p>专为 V2BA 空间日志设计的多媒体播放解决方案。解决日志无法播放、格式不兼容等难题，支持流畅在线播放与本地预览。</p>
+            <a href="#player" class="cta-button">立即获取播放器</a>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <!-- 播放器服务介绍 -->
+        <section id="player">
+            <h2 class="section-title">核心播放服务</h2>
+            <div class="player-grid">
+                <article class="card">
+                    <div class="card-icon">▶</div>
+                    <h3>V2BA 专用播放器</h3>
+                    <p>针对 V2BA 系统优化的独立播放器组件，支持日志中的视频、音频及多媒体流媒体文件的直接渲染与解码。</p>
+                    <a href="#" class="card-link">下载播放器 &rarr;</a>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">⚙️</div>
+                    <h3>配置与集成指南</h3>
+                    <p>提供详细的插件安装说明、代码集成示例及参数配置教程，帮助开发者快速在 V2BA 空间中集成日志播放功能。</p>
+                    <a href="#" class="card-link">查看集成文档 &rarr;</a>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3>在线播放服务</h3>
+                    <p>无需本地安装，直接通过我们的云端服务进行日志内容预览。支持跨平台访问，随时随地查看空间日志。</p>
+                    <a href="#" class="card-link">开始在线播放 &rarr;</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- 播放步骤 -->
+        <section id="guide">
+            <h2 class="section-title">V2BA 空间日志播放步骤</h2>
+            <div class="steps-container">
+                <div class="step-item">
+                    <h4>1. 检查日志格式</h4>
+                    <p>确保您的 V2BA 空间日志内容包含合法的多媒体标签（如 &lt;video&gt; 或特定播放器封装代码），且文件路径正确。</p>
+                </div>
+                <div class="step-item">
+                    <h4>2. 选择播放方式</h4>
+                    <p>您可以选择下载本地播放器进行离线预览，或直接在浏览器中访问在线播放服务。</p>
+                </div>
+                <div class="step-item">
+                    <h4>3. 初始化播放器</h4>
+                    <p>运行播放器程序，输入日志地址或导入日志文件，系统将自动识别并加载多媒体资源。</p>
+                </div>
+                <div class="step-item">
+                    <h4>4. 享受播放体验</h4>
+                    <p>调整播放速度、音量及全屏模式，获得流畅的视听体验。如遇卡顿，请检查网络连接。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见问题 FAQ -->
+        <section id="faq">
+            <h2 class="section-title">常见问题解答</h2>
+            <ul class="faq-list">
+                <li class="faq-item">
+                    <div class="faq-question">V2BA 空间日志播放器支持哪些视频格式？</div>
+                    <div class="faq-answer">本播放器主要支持 MP4, WebM, Ogg 等主流 HTML5 视频格式。对于部分加密或特殊编码的日志文件，可能需要特定的解码插件支持。</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-question">在线播放是否安全？</div>
+                    <div class="faq-answer">我们提供的安全播放服务经过严格审核，所有资源链接均为加密传输，确保您的隐私和设备安全。</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-question">播放日志时出现“无法加载”错误怎么办？</div>
+                    <div class="faq-answer">请首先检查网络连接是否正常。其次，确认日志源地址是否有效，或尝试清除浏览器缓存后重新加载。</div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-question">如何为我的 V2BA 空间添加播放功能？</div>
+                    <div class="faq-answer">您可以在空间设置中启用“多媒体支持”选项，并按照我们的集成指南将播放器代码嵌入到日志模板中。</div>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于 V2BA 空间日志播放</h4>
+                    <p style="font-size: 0.9rem; color: #94a3b8;">专注于为 V2BA 用户提供最稳定、高效的多媒体日志播放解决方案。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">播放器下载</a></li>
+                        <li><a href="#">使用帮助</a></li>
+                        <li><a href="#">更新日志</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>技术支持</h4>
+                    <ul>
+                        <li><a href="#">提交工单</a></li>
+                        <li><a href="#">用户社区</a></li>
+                        <li><a href="#">联系管理员</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 V2BA空间日志播放服务中心. 保留所有权利.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 手风琴交互
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项目
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项目
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
