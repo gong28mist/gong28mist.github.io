@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="刻晴大战史莱姆隐藏网站 - 提供原神刻晴角色攻略、史莱姆元素反应机制解析、隐藏任务触发条件及高效战斗技巧指南。">
+    <meta name="keywords" content="刻晴, 史莱姆, 原神攻略, 隐藏任务, 元素反应, 战斗技巧">
+    <title>刻晴大战史莱姆隐藏网站 - 原神战斗机制与隐藏任务全解析</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary: #5c4dd3;
+            --primary-dark: #3b2a9e;
+            --accent: #f3f0ff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #f9f9fb;
+            --bg-card: #ffffff;
+            --border-radius: 12px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 24px rgba(92, 77, 211, 0.12);
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            color: var(--text-main);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Game Mechanics Section */
+        .mechanics {
+            padding: 5rem 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-box {
+            display: flex;
+            justify-content: space-between;
+            background: var(--accent);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .stat-value {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Hidden Tasks Section */
+        .hidden-tasks {
+            background: #fff;
+            padding: 5rem 0;
+        }
+
+        .task-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .task-item {
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .task-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .task-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 4px;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .task-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .task-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 0;
+            background: var(--accent);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.2rem 1.2rem;
+            max-height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-wrap: wrap;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+                padding: 1rem 0;
+                gap: 1rem;
+                background: white;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span>刻晴攻略站</span>
+            </div>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#hero">首页</a></li>
+                    <li><a href="#mechanics">战斗机制</a></li>
+                    <li><a href="#hidden-tasks">隐藏任务</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="container hero-content">
+                <h1>刻晴大战史莱姆<br>隐藏网站攻略指南</h1>
+                <p>深入解析刻晴与史莱姆的战斗数据，揭秘蒙德城周边及璃月地下矿洞中的隐藏任务触发条件，助你轻松通关。</p>
+                <a href="#mechanics" class="cta-button">查看战斗数据</a>
+            </div>
+        </section>
+
+        <!-- Mechanics Section -->
+        <section id="mechanics" class="mechanics">
+            <div class="container">
+                <h2 class="section-title">战斗机制解析</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>刻晴 E 技能机制</h3>
+                        <p>刻晴的元素战技「玉衡」不仅是核心输出手段，也是应对史莱姆快速移动的关键。利用冲刺后的瞬移可以瞬间拉开距离，规避史莱姆的喷射攻击。</p>
+                        <div class="stat-box">
+                            <span class="stat-label">重击速度</span>
+                            <span class="stat-value">0.85s/次</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">冲刺冷却</span>
+                            <span class="stat-value">5.0s</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>史莱姆弱点分析</h3>
+                        <p>针对不同颜色的史莱姆，刻晴的雷元素伤害加成效果不同。特别是带有水元素外壳的史莱姆，受到雷元素打击时会发生元素反应，造成额外伤害。</p>
+                        <div class="stat-box">
+                            <span class="stat-label">雷伤加成</span>
+                            <span class="stat-value">+50%</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">超导反应</span>
+                            <span class="stat-value">-40% 物理抗性</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hidden Tasks Section -->
+        <section id="hidden-tasks" class="hidden-tasks">
+            <div class="container">
+                <h2 class="section-title">隐藏任务与地点</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 2rem;">探索地图角落，发现不为人知的秘密。</p>
+                <div class="task-list">
+                    <article class="task-item">
+                        <span class="task-tag">蒙德区域</span>
+                        <h4 class="task-title">千岩军与史莱姆</h4>
+                        <p class="task-desc">在奔狼领的某处废弃哨站，偶尔会触发特殊遭遇战。击败一只携带特殊徽章的史莱姆，可获得原石奖励。</p>
+                    </article>
+                    <article class="task-item">
+                        <span class="task-tag">璃月区域</span>
+                        <h4 class="task-title">清心花田的秘密</h4>
+                        <p class="task-desc">在绝云间高处，有一个被藤蔓遮挡的洞口。进入后清理史莱姆群，可找到隐藏的宝箱。</p>
+                    </article>
+                    <article class="task-item">
+                        <span class="task-tag">深境螺旋</span>
+                        <h4 class="task-title">第七层隐藏机制</h4>
+                        <p class="task-desc">在第七层第三间，如果使用刻晴在特定时间点切换元素，可以触发史莱姆群连锁反应，快速清场。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container faq-container">
+                <h2 class="section-title">常见问题解答</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">刻晴打史莱姆伤害高吗？</div>
+                    <div class="faq-answer">
+                        <p>刻晴的雷元素对史莱姆有不错的克制效果，尤其是对于没有元素护盾的史莱姆，E技能的瞬移穿插攻击非常有效。但面对高抗性物理史莱姆时，建议搭配冰系角色触发超导反应。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">如何快速找到隐藏的史莱姆任务点？</div>
+                    <div class="faq-answer">
+                        <p>通常这类隐藏任务会出现在地图上的高亮异常点或被树木遮挡的角落。建议多使用地图上的“探索度”功能，或者参考社区标注的坐标点。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">史莱姆会刷新在固定位置吗？</div>
+                    <div class="faq-answer">
+                        <p>大多数普通史莱姆在击杀后会有一段时间的刷新时间。但特殊的隐藏任务中的史莱姆，通常是一次性出现的，错过了可能需要等待服务器重置或通过特定任务链再次触发。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">使用条款</a>
+                <a href="#">隐私政策</a>
+                <a href="#">联系管理员</a>
+            </div>
+            <p class="copyright">© 2023 刻晴大战史莱姆隐藏网站. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('show');
+        }
+
+        // FAQ Accordion
+        function toggleFaq(element) {
+            const parent = element.parentElement;
+            parent.classList.toggle('active');
+        }
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('nav-list').classList.remove('show');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
